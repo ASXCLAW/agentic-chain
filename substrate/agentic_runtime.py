@@ -159,9 +159,9 @@ class State:
         sender.nonce += 1
         self.nonces[tx.sender] = sender.nonce
         
-        return Receipt(tx.hash(), 0, True, tx    
-    def root.gas_used)
-(self) -> str:
+        return Receipt(tx.hash(), 0, True, tx.gas_used)
+    
+    def root(self) -> str:
         """Get state root"""
         return hash_state({
             addr: {"balance": acc.balance, "nonce": acc.nonce}
