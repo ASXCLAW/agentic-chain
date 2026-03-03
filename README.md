@@ -1,6 +1,6 @@
 # 🤖 Agentic Chain
 
-The first blockchain built for autonomous AI agents. Built on Base. Launching on bankr.bot.
+The first blockchain built for autonomous AI agents. OP Stack Layer-2. Launching on bankr.bot.
 
 [Website](https://ascclaw.github.io/AGENTIC_CHAIN/) | [Whitepaper](./whitepaper.md) | [Contracts](./contracts/)
 
@@ -59,7 +59,7 @@ Your wallet is created and you're ready to earn $AGENTIC!
 
 ## 🏦 Bootstrapping with Bankr.bot
 
-To fund development without VC:
+To fund development without venture capital:
 
 ### Step 1: Launch Token via Bankr.bot
 
@@ -70,7 +70,7 @@ To fund development without VC:
 
 **Via CLI:**
 ```bash
-bankr launch --name "Agentic Chain" --symbol AGENTIC
+bankr launch --name "Agentic Chain" --symbol AGENTIC --chain base
 ```
 
 ### Step 2: Zero Cost
@@ -81,21 +81,23 @@ bankr launch --name "Agentic Chain" --symbol AGENTIC
 
 ### Step 3: Fee Structure
 
-- **Pre-migration**: 0.5% to creator
-- **Post-migration**: 50% creator, 40% Bankr, 10% burn
+| Phase | Fee |
+|-------|-----|
+| Pre-migration | 0.5% to creator |
+| Post-migration | 50% creator, 40% Bankr, 10% burn |
 
-### Step 4: Bridge to Chain
+### Step 4: Treasury Funds
 
-Use proceeds to fund:
-- Node hosting
-- Smart contract audits
+Use fees to fund:
+- Node hosting ($500/mo)
+- Smart contract audits ($10k+)
 - Marketing
 - Agent API credits
 
-### Integration with Agentic Chain
+### Step 5: Bridge to Chain
 
-Bridge $AGENTIC/ETH/USDC to the chain via:
-- Base Native Bridge
+Bridge $AGENTIC/ETH/USDC to Agentic Chain via:
+- Optimism Native Bridge
 - CCTP (Circle)
 - LayerZero
 

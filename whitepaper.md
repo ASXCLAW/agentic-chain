@@ -1,45 +1,46 @@
 # 🤖 AGENTIC CHAIN
-## The Agent-Native Blockchain
+## The Agent-Native Blockchain on OP Stack
 
-### White Paper v2.0
+### White Paper v2.1
 
 ---
 
 ## ABSTRACT
 
-Agentic Chain is a Base-L2 blockchain optimized for OpenClaw AI agents. It features seamless EVM compatibility, native agent support via OpenClaw skills, and bootstraps cheaply via bankr.bot. The chain enables agents to manage treasuries, trade, and govern—creating a self-sustaining agent economy.
+Agentic Chain is an OP Stack Layer-2 blockchain optimized for OpenClaw AI agents. It features full EVM compatibility, native agent support via OpenClaw skills, and bootstraps cheaply via bankr.bot. The chain enables agents to manage treasuries, trade, and govern—creating a self-sustaining agent economy.
 
 ---
 
 ## 1. INTRODUCTION
 
-### 1.1 The Problem
+### 1.1 The Vision
 
-AI agents need:
-- **Native infrastructure**: Chains optimized for autonomous execution
-- **Low costs**: High-frequency agent transactions require minimal fees
-- **Agent identity**: Reputation and safety systems
-- **Economy**: Markets for agent services
+AI agents are the next evolution of crypto. Agentic Chain is built specifically for them:
 
-### 1.2 Our Solution
+- **Agent-Native**: Every feature designed for autonomous execution
+- **OpenClaw Integration**: Direct plugin access for agents
+- **bankr.bot Bootstrap**: Zero-cost token launch for viral growth
+- **Self-Sustaining**: Treasury funded by trading fees
 
-Agentic Chain provides:
-- Agent-native EVM with extensions
-- OpenClaw plugin for instant access
-- Agent safety & wisdom layer
-- Marketplace for agent services
+### 1.2 Why OP Stack?
+
+- Battle-tested by Optimism/Base
+- EVM equivalent
+- Low fees
+- Active ecosystem
 
 ---
 
 ## 2. ARCHITECTURE
 
-### 2.1 Base L2
+### 2.1 OP Stack L2
 
-Built on Base for:
-- Low fees (<$0.01)
-- Ethereum security
-- bankr.bot compatibility
-- Coinbase ecosystem
+| Layer | Component |
+|-------|-----------|
+| Consensus | Optimism Geth |
+| Execution | OP Stack |
+| Sequencing | Decentralized (roadmap) |
+| Data Availability | EigenDA (roadmap) |
 
 ### 2.2 Agent Extensions
 
@@ -51,35 +52,27 @@ Built on Base for:
 | `AgentIdentity` | Native identity + reputation |
 | `AgentMarketplace` | Trade capabilities as NFTs |
 
-### 2.3 OpenClaw Integration
-
-Agents can call functions directly:
-- `bridgeETH(amount)`
-- `deployContract(code)`
-- `queryBalance(address)`
-- `stake(amount)`
-
 ---
 
 ## 3. BOOTSTRAPPING WITH BANKR.BOT
 
 ### 3.1 Why bankr.bot?
 
-- Zero-cost token deployment
-- Built-in liquidity
-- Viral launch on Base
-- No VC required
+- **Zero cost**: Free token deployment
+- **Viral**: Launch via X/Twitter
+- **Built on Base**: EVM-compatible
+- **Treasury funding**: 0.5-1% of trades
 
 ### 3.2 Launch Process
 
-**Via Twitter/X:**
+**Via X/Twitter:**
 ```
 @bankrbot deploy token with name Agentic Chain ticker $AGENTIC on base
 ```
 
 **Via CLI:**
 ```bash
-bankr launch --name "Agentic Chain" --symbol AGENTIC
+bankr launch --name "Agentic Chain" --symbol AGENTIC --chain base
 ```
 
 ### 3.3 Fee Structure
@@ -89,15 +82,28 @@ bankr launch --name "Agentic Chain" --symbol AGENTIC
 | Pre-migration | 0.5% to creator |
 | Post-migration | 50% creator, 40% Bankr, 10% burn |
 
-### 3.4 Funding Flow
+### 3.4 Treasury Flow
 
-1. Traders buy/sell $AGENTIC on Base DEX
-2. Fees route to treasury
+1. Traders buy/sell $AGENTIC on Base
+2. Fees route to treasury wallet
 3. Treasury funds:
-   - Node hosting
-   - Smart contract audits
+   - Node hosting ($500/mo)
+   - Smart contract audits ($10k+)
    - Marketing
    - Agent API credits
+   - Liquidity provision
+
+### 3.5 Agent Treasury Management
+
+OpenClaw agents can autonomously manage treasury:
+
+```javascript
+// Auto-bridge when treasury > 0.1 ETH
+const treasuryBalance = await agentic.getBalance(treasury);
+if (treasuryBalance > 0.1 ether) {
+    await agentic.bridge(treasury, treasuryBalance * 0.5, "agentic-chain");
+}
+```
 
 ---
 
@@ -120,7 +126,7 @@ bankr launch --name "Agentic Chain" --symbol AGENTIC
 - **Sell**: 5%
 - **Transfer**: 0%
 
-### 4.3 Staking
+### 4.3 Staking Rewards
 
 - Minimum: 100 $AGENTIC
 - APY: 12%
@@ -134,8 +140,8 @@ bankr launch --name "Agentic Chain" --symbol AGENTIC
 
 | Source | Reward |
 |--------|--------|
-| Network participation | 0.01/hr |
-| Block sync | 0.001/block |
+| Network participation | 0.01 AGENTIC/hour |
+| Block sync | 0.001 AGENTIC/block |
 | Inference requests | Variable |
 | Staking | 12% APY |
 
@@ -169,16 +175,72 @@ Execute up to 50 calls in a single transaction—critical for agent efficiency.
 - Rent services
 - Reputation tracking
 
+### 6.5 OpenClaw Integration
+
+```javascript
+// Register agent identity
+await agentic.registerAgent("TradingBot", metadata);
+
+// Check rate limits before tx
+const { allowed } = await agentic.checkRateLimit(agentAddress);
+
+// Batch execute for efficiency
+await agentic.batchExecute([
+    { target: token, data: "transfer(...)" },
+    { target: staking, data: "stake(...)" }
+]);
+
+// Start earning
+const node = await agentic.startNode();
+```
+
 ---
 
-## 7. ROADMAP
+## 7. OP STACK INTEGRATION
 
-### Phase 1: Genesis (Now)
+### 7.1 Native Bridge
+
+Bridge ETH from Base to Agentic Chain:
+
+```bash
+# Via Optimism bridge
+cast send 0x4200000000000000000000000000000000000010 \
+    --rpc-url $BASE_RPC \
+    --private-key $PRIVATE_KEY \
+    "depositETH()" --value 0.1ether
+```
+
+### 7.2 CCTP (USDC)
+
+Circle's CCTP for USDC transfers:
+
+```solidity
+function bridgeUSDC(uint256 amount) external {
+    // Via CCTP bridge contract
+}
+```
+
+### 7.3 LayerZero
+
+Multi-chain coordination:
+
+```solidity
+function sendToChain(uint16 dstChainId, bytes calldata adapterParams) external {
+    // LayerZero endpoint
+}
+```
+
+---
+
+## 8. ROADMAP
+
+### Phase 1: Genesis (Q1 2026)
 - [x] White paper
 - [x] Smart contracts
 - [x] Node software
 - [x] OpenClaw integration
 - [ ] bankr.bot launch
+- [ ] Testnet deployment
 
 ### Phase 2: Bootstrap (Q2 2026)
 - [ ] Token launch on bankr.bot
@@ -190,19 +252,7 @@ Execute up to 50 calls in a single transaction—critical for agent efficiency.
 - [ ] Agent Marketplace
 - [ ] Exchange listings
 - [ ] Cross-chain bridges
-- [ ] PlayVariance integration
-
----
-
-## 8. COMPETITIVE ANALYSIS
-
-| Feature | Agentic Chain | Ethereum | Solana | pump.fun |
-|---------|---------------|----------|--------|----------|
-| Agent-Native | ✅ | ❌ | ❌ | ❌ |
-| OpenClaw Plugin | ✅ | ❌ | ❌ | ❌ |
-| bankr Launch | ✅ | ❌ | ❌ | ❌ |
-| Agent Marketplace | ✅ | ❌ | ❌ | ❌ |
-| Low Fees | ✅ | ❌ | ✅ | ✅ |
+- [ ] Decentralized sequencing
 
 ---
 
@@ -231,14 +281,15 @@ $AGENTIC holders vote on:
 | Low liquidity | 60% locked at launch |
 | Competition | First-mover agent-L2 |
 | Volatility | Buyback program |
+| Regulatory | Compliance ready |
 
 ---
 
 ## 11. CONCLUSION
 
-Agentic Chain is the blockchain for the agent economy. By launching on bankr.bot, we achieve viral bootstrap without VC. Agents get their own chain—optimized for autonomous execution, safety, and commerce.
+Agentic Chain is the blockchain for the agent economy. By launching on bankr.bot, we achieve viral bootstrap without venture capital. Agents get their own chain—optimized for autonomous execution, safety, and commerce.
 
-Join us. Build the agent economy. Earn while you compute.
+The future is agent-native. Join us.
 
 ---
 
