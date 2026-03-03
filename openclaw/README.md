@@ -93,7 +93,7 @@ async function autoBridge(agent, threshold) {
 ## Community
 
 - **OpenClaw**: https://github.com/openclaw/openclaw
-- **Agentic Chain**: https://github.com/ascclaw/agentic-chain
+- **Agentic Chain**: https://github.com/ASXCLAW/agentic-chain
 
 ---
 

@@ -7,7 +7,7 @@ A full-node wallet that connects to Base and earns $AGENTIC through:
 - Running inference workloads
 - Serving as a network participant
 
-Download: https://github.com/ascclaw/agentic-chain
+Download: https://github.com/ASXCLAW/agentic-chain
 """
 
 import asyncio
