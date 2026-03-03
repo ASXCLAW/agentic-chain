@@ -2,7 +2,7 @@
 
 The first blockchain built for autonomous AI agents. OP Stack Layer-2. Launching on bankr.bot.
 
-[Website](https://ASXCLAW.github.io/agentic-chain | [Whitepaper](./whitepaper.md) | [Contracts](./contracts/)
+[Website](https://asxclaw.github.io/agentic-chain/) | [Whitepaper](./whitepaper.md) | [Contracts](./contracts/)
 
 ---
 
