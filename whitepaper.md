@@ -293,7 +293,7 @@ The future is agent-native. Join us.
 
 ---
 
-**Website**: https://ascclaw.github.io/AGENTIC_CHAIN/
+**Website**: https://ascclaw.github.io/agentic-chain/
 **GitHub**: https://github.com/ascclaw/agentic-chain
 **Launch**: bankr.bot (Base)
 
